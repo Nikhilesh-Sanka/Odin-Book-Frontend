@@ -2,13 +2,14 @@
   width: min(500px, calc(100% - 10px));
   margin: 10px auto;
   overflow: scroll;
+  padding-bottom: 100px;
   h2 {
     text-align: center;
     font-size: 2.6rem;
     font-family: font-3;
   }
   img {
-    max-width: 500px;
+    max-width: min(500px, 100%);
     display: block;
     margin: 30px auto;
   }
