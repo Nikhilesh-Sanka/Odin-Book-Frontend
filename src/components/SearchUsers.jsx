@@ -56,6 +56,8 @@ export default function SearchUsers() {
 
   // handling browse users selection
   function browseUsers() {
+    setLoadingStatus(true);
+    setResults(null);
     handleSearch("");
     searchBar.current.value = "";
   }

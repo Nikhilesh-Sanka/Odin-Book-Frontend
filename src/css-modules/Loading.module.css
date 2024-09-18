@@ -1,11 +1,11 @@
 .loading {
   display: block;
-  width: 30px;
+  width: 100%;
   margin: 0 auto;
 }
 
 .loading img {
-  width: 30px;
+  width: min(30px, 100%);
   height: auto;
   animation: loading-animation 1s infinite linear;
 }
