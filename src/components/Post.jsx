@@ -138,10 +138,18 @@ export default function Post(props) {
     }
   }
 
+  // open profile of the author
+  function openProfile(authorId) {
+    navigate("/userProfile", { state: authorId });
+  }
+
   return (
     <div className={PostStyles["post"]}>
       <div className={PostStyles["header"]}>
-        <img src={post.author.profile.image} />
+        <img
+          src={post.author.profile.image}
+          onClick={() => openProfile(post.author.id)}
+        />
         <p>{`${post.createdAt.slice(11, 16)} ${post.createdAt.slice(
           0,
           10
@@ -237,9 +245,19 @@ Post.propTypes = {
 
 // comments component
 function Comment(props) {
+  const navigate = useNavigate();
+
+  // viewing the profile of the author
+  function openProfile(authorId) {
+    navigate("/userProfile", { state: authorId });
+  }
+
   return (
     <div className={PostStyles["comment"]}>
-      <img src={props.comment.author.profile.image} />
+      <img
+        src={props.comment.author.profile.image}
+        onClick={() => openProfile(props.comment.author.id)}
+      />
       <p>
         {props.clientId !== props.comment.author.id
           ? props.comment.author.username
