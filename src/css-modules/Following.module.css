@@ -1,4 +1,6 @@
 .following {
+  overflow: scroll;
+  padding-bottom: 50px;
   h2 {
     text-align: center;
     font-family: font-3;

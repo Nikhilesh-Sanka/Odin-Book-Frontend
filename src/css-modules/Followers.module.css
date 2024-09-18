@@ -1,4 +1,6 @@
 .followers {
+  overflow: scroll;
+  padding-bottom: 50px;
   h2 {
     text-align: center;
     margin: 30px 0;

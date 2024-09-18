@@ -1,4 +1,6 @@
 .search-users {
+  overflow: scroll;
+  padding-bottom: 50px;
   button.browse-people {
     display: flex;
     justify-content: center;
