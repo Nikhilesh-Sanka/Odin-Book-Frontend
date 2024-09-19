@@ -7,8 +7,15 @@ import { TokenContext } from "../App.jsx";
 import UserProfileStyles from "../css-modules/userProfile.module.css";
 
 export default function UserProfile() {
-  const [profile, setProfile] = useState(null);
-  const [posts, setPosts] = useState(null);
+  const [result, setResult] = useState(null);
+  let profile;
+  let posts;
+  let clientId;
+  if (result) {
+    profile = result.profile;
+    posts = result.posts;
+    clientId = result.clientId;
+  }
   const { token } = useContext(TokenContext);
   const navigate = useNavigate();
   const { state: userId } = useLocation();
@@ -29,14 +36,13 @@ export default function UserProfile() {
         }
       })
       .then((result) => {
-        setProfile(result.profile);
-        setPosts(result.posts);
+        setResult(result);
       });
   }, []);
 
   return (
     <div className={UserProfileStyles["container"]}>
-      {profile ? (
+      {result ? (
         <>
           <div className={UserProfileStyles["user-profile"]}>
             <h2>{profile.username}</h2>
@@ -52,7 +58,7 @@ export default function UserProfile() {
           <div className={UserProfileStyles["user-posts"]}>
             <h2>{profile.username} posts</h2>
             {posts.map((post) => {
-              return <Post post={post} key={post.id} />;
+              return <Post post={post} clientId={clientId} key={post.id} />;
             })}
           </div>
         </>
