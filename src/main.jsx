@@ -11,6 +11,8 @@ import Followers from "./components/Followers.jsx";
 import Following from "./components/Following.jsx";
 import CreatePost from "./components/createPost.jsx";
 import Posts from "./components/Posts.jsx";
+import ServerError from "./components/serverError.jsx";
+import ErrorElement from "./components/errorElement.jsx";
 import UserProfile from "./components/userProfile.jsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
@@ -19,6 +21,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    errorElement: <ErrorElement />,
     children: [
       {
         path: "/searchUsers",
@@ -61,6 +64,10 @@ const router = createBrowserRouter([
   {
     path: "/logout",
     element: <Logout />,
+  },
+  {
+    path: "/serverError",
+    element: <ServerError />,
   },
 ]);
 
